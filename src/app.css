@@ -1,0 +1,11 @@
+.calculator {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 29% 71%;
+}
+
+.calculator__control {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
