@@ -2,6 +2,10 @@
 
 This is a calculator application developed using React & Redux toolkit, with an easy-to-use and interactive user interface.
 
+# My Planning For The Project
+
+![plan](./Project%20Plan.png)
+
 # Features
 
 Our Simple Calculator application comes packed with a wide range of powerful features that will help you solve calculations with ease. Some of the notable features include:
@@ -17,9 +21,13 @@ Our Simple Calculator application comes packed with a wide range of powerful fea
 - Sass (CSS)
 - JavaScript
 
+## Screenshot
+
+![plan](./screenshot/1.png)
+
 ## The Demo :
 
-[![Demo](https://img.shields.io/badge/Demo-ffffff?style=for-the-badge&logo=vercel&logoColor=black)](https://to-do-list-app-swart.vercel.app/)
+[![Demo](https://img.shields.io/badge/Demo-ffffff?style=for-the-badge&logo=vercel&logoColor=black)](https://calculator-lac-eight.vercel.app/)
 
 ---
 
