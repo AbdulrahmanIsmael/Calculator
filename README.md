@@ -2,7 +2,7 @@
 
 This is a calculator application developed using React & Redux toolkit, with an easy-to-use and interactive user interface.
 
-# My Planning For The Project
+# My Pre-Planning of The Project
 
 ![plan](./Project%20Plan.png)
 
