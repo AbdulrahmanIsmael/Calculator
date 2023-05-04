@@ -1,6 +1,6 @@
 # Calculator
 
-This is a calculator application developed using React & Redux toolkit, with an easy-to-use and interactive user interface.
+This **calculator** web application, built with React and Redux toolkit, features **_an easy-to-use and interactive user interface_**, which allows users to perform calculations seamlessly on any device with its **_responsive design_**.
 
 # My Pre-Planning of The Project
 
@@ -10,9 +10,8 @@ This is a calculator application developed using React & Redux toolkit, with an 
 
 Our Simple Calculator application comes packed with a wide range of powerful features that will help you solve calculations with ease. Some of the notable features include:
 
-- The ability to perform multiple operations on numbers, including square root, cubic root, squaring, and cubing
+- The ability to perform multiple operations, including square root, cubic root, squaring, and cubing.
 - A handy reset board feature that allows you to start fresh with just one click
-- The result shows up instantly, giving you real-time feedback on your calculations
 
 ## Tools
 
@@ -23,7 +22,8 @@ Our Simple Calculator application comes packed with a wide range of powerful fea
 
 ## Screenshot
 
-![plan](./screenshot/1.png)
+![1](./screenshot/1.png)
+![2](./screenshot/2.png)
 
 ## The Demo :
 
