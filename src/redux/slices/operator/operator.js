@@ -13,8 +13,8 @@ const operatorSlice = createSlice({
       state.operator = action.payload;
     },
 
-    setTransform: state => {
-      state.transform = true;
+    setTransform: (state, action) => {
+      state.transform = action.payload;
     },
   },
 

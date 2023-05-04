@@ -1,12 +1,20 @@
 .numbers {
   height: 100%;
-  padding: 3em 0;
+  padding: 3em 1em;
   background-color: #777;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(3, minmax(50px, 100px));
   justify-content: space-evenly;
   gap: 3em;
+
+  @media (width <= 1200px) {
+    gap: 2em;
+  }
+
+  @media (width <= 768px) {
+    gap: 1.5em;
+  }
   .empty {
     visibility: hidden;
   }
@@ -17,7 +25,11 @@
     background-color: #eee;
     border: 0;
     border-radius: 0.5em;
-    font-size: 3.5rem;
+    font-size: 4.5rem;
+
+    @media (width <= 1200px) {
+      font-size: 4rem;
+    }
 
     &:active {
       transform: scale(0.97);

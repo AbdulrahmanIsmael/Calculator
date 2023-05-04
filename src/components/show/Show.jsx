@@ -1,34 +1,33 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNumber1, setNumber2 } from '../../redux/slices/numbers/numbers';
+import { setTransform } from '../../redux/slices/operator/operator';
 import './show.scss';
 
-function Show({ result, setResult }) {
+function Show({ result }) {
   const { numbers, operator } = useSelector(state => state);
-
-  useEffect(() => {
-    switch (operator.operator) {
-      case '+':
-        setResult((+numbers.number1 + +numbers.number2).toFixed(2));
-        break;
-      case '-':
-        setResult((+numbers.number1 - +numbers.number2).toFixed(2));
-        break;
-      case 'x':
-        setResult((+numbers.number1 * +numbers.number2).toFixed(2));
-        break;
-      case '/':
-        setResult((+numbers.number1 / +numbers.number2).toFixed(2));
-        break;
-      default:
-        setResult(result);
-    }
-  }, [numbers.number2]);
+  const dispatch = useDispatch();
 
   return (
     <div className='show'>
-      <div className='show__num1'>{numbers.number1}</div>
-      <div className='show__num2'>{numbers.number2}</div>
+      <input
+        type='number'
+        name='number1'
+        id='show__num1'
+        className={operator.transform === false ? 'select' : ''}
+        value={numbers.number1}
+        onChange={e => dispatch(setNumber1(e.target.value))}
+        onClick={() => dispatch(setTransform(false))}
+      />
+      <input
+        type='number'
+        name='number2'
+        id='show__num2'
+        className={operator.transform === true ? 'select' : ''}
+        value={numbers.number2}
+        onChange={e => dispatch(setNumber2(e.target.value))}
+        onClick={() => dispatch(setTransform(true))}
+      />
       <div className='show__resop'>
         <div className='show__resop__operator'>{operator.operator}</div>
         <div className='show__resop__result'>{result}</div>
@@ -38,5 +37,3 @@ function Show({ result, setResult }) {
 }
 
 export default Show;
-
-// #DDFCFF: calculator display screen color

@@ -7,20 +7,29 @@
     border-bottom: 1px solid #000;
   }
 
-  div:not(.show__resop) {
+  :is(div:not(.show__resop), input) {
     padding: 0.2em 0.5em;
   }
 
-  .show__num1 {
+  input {
+    cursor: pointer;
+    caret-color: #bbedf1;
+    border: 0;
+    border-bottom: 1px solid #000;
     background-color: #bbedf1;
     font-family: sans-serif;
     width: 100%;
+    font-size: 4.5rem;
+
+    &.select {
+      animation: color_switch 1s infinite alternate;
+    }
   }
-  .show__num2 {
-    background-color: #bbedf1;
-    font-family: sans-serif;
-    width: 100%;
+
+  input[type='number']::-webkit-inner-spin-button {
+    appearance: none;
   }
+
   .show__resop {
     background-color: #bbedf1;
     font-family: sans-serif;
@@ -36,5 +45,15 @@
       text-align: center;
       border-left: 1px solid #000;
     }
+  }
+}
+
+@keyframes color_switch {
+  from {
+    color: transparent;
+  }
+
+  to {
+    color: #000;
   }
 }

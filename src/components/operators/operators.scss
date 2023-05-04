@@ -1,12 +1,20 @@
 .operators {
   height: 100%;
-  padding: 3em 3em;
+  padding: 3em 2em;
   background-color: #555;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(3, minmax(50px, 100px));
   justify-content: space-around;
-  gap: 5em;
+  gap: 3.5em;
+
+  @media (width <= 1200px) {
+    gap: 2.5em;
+  }
+
+  @media (width <= 768px) {
+    gap: 1.5em;
+  }
 
   button {
     transition: transform 0.1s linear;
@@ -14,7 +22,11 @@
     background-color: #eee;
     border: 0;
     border-radius: 0.5em;
-    font-size: 3rem;
+    font-size: 4.5rem;
+
+    @media (width <= 1200px) {
+      font-size: 4rem;
+    }
 
     &:active {
       transform: scale(0.97);

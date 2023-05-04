@@ -7,25 +7,48 @@ import Button from '../numbers/Button';
 import './operators.scss';
 
 function Operators({ setResult }) {
-  const num1 = useSelector(state => state.numbers.number1);
+  const { numbers, operator } = useSelector(state => state);
   const dispatch = useDispatch();
+
   const handleOperator = e => {
     dispatch(setOperator(e.target.textContent));
-    dispatch(setTransform());
   };
 
   const squaringNum = () => {
-    setResult((num1 * num1).toFixed(2));
+    setResult((+numbers.number1 * +numbers.number1).toFixed(2));
   };
   const cubingNum = () => {
-    setResult((num1 * num1 * num1).toFixed(2));
+    setResult(
+      (+numbers.number1 * +numbers.number1 * +numbers.number1).toFixed(2)
+    );
   };
 
   const squareRoot = () => {
-    setResult((num1 ** 0.5).toFixed(2));
+    setResult((numbers.number1 ** 0.5).toFixed(2));
   };
   const cubicRoot = () => {
-    setResult((num1 ** (1 / 3)).toFixed(2));
+    setResult((numbers.number1 ** (1 / 3)).toFixed(2));
+  };
+
+  const showResult = () => {
+    switch (operator.operator) {
+      case '+':
+        setResult((+numbers.number1 + +numbers.number2).toFixed(2));
+        break;
+      case '-':
+        setResult((+numbers.number1 - +numbers.number2).toFixed(2));
+        break;
+      case 'x':
+        setResult((+numbers.number1 * +numbers.number2).toFixed(2));
+        break;
+      case '/':
+        setResult((+numbers.number1 / +numbers.number2).toFixed(2));
+        break;
+      default:
+        setResult(result);
+    }
+
+    dispatch(setTransform(null));
   };
 
   return (
@@ -38,6 +61,7 @@ function Operators({ setResult }) {
       <Button value={'a\u00B3'} handleEvent={cubingNum} />
       <Button value={'√a'} handleEvent={squareRoot} />
       <Button value={'\u221Ba'} handleEvent={cubicRoot} />
+      <Button value={'='} handleEvent={showResult} />
     </div>
   );
 }

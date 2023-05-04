@@ -7,21 +7,53 @@ import {
 import Button from './Button';
 import './numbers.scss';
 
-function Numbers() {
+function Numbers({ setResult }) {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
   const handleNumber = e => {
+    const value = e.target.textContent;
+    /* If transform state is true => set to number 2, else set to number 1 => */
     if (state.operator.transform) {
-      dispatch(setNumber2(e.target.textContent));
+      let num2 = String(state.numbers.number2);
+      /* initially set the first number in the input */
+      if (num2 === '0') {
+        dispatch(setNumber2(value));
+        return;
+      }
+      num2 += value;
+      dispatch(setNumber2(num2));
       return;
     }
-    dispatch(setNumber1(e.target.textContent));
+    let num1 = String(state.numbers.number1);
+    /* initially set the first number in the input */
+    if (num1 === '0') {
+      dispatch(setNumber1(value));
+      return;
+    }
+    num1 += value;
+    dispatch(setNumber1(num1));
   };
 
   const resetAll = () => {
     dispatch(resetNumbers());
+    setResult(0);
   };
+
+  const backspace = () => {
+    if (state.operator.transform) {
+      let num2 = String(state.numbers.number2);
+      num2 = num2.slice(0, num2.length - 1);
+      console.log(num2);
+      dispatch(setNumber2(+num2));
+      return;
+    }
+    let num1 = String(state.numbers.number1);
+    num1 = num1.slice(0, num1.length - 1);
+    console.log(num1);
+    dispatch(setNumber1(+num1));
+  };
+
   return (
     <div className='numbers'>
       <Button value={7} handleEvent={handleNumber} />
@@ -35,6 +67,7 @@ function Numbers() {
       <Button value={3} handleEvent={handleNumber} />
       <Button value={'C'} handleEvent={resetAll} />
       <Button value={0} handleEvent={handleNumber} />
+      <Button value={'←'} handleEvent={backspace} />
     </div>
   );
 }

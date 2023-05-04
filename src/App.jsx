@@ -10,10 +10,10 @@ function App() {
   return (
     <div className='calculator'>
       <div className='calculator__screen'>
-        <Show result={result} setResult={setResult} />
+        <Show result={result} />
       </div>
       <div className='calculator__control'>
-        <Numbers />
+        <Numbers setResult={setResult} />
         <Operators setResult={setResult} />
       </div>
     </div>
